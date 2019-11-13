@@ -23,20 +23,20 @@
 を.envファイルに記入  
  - Controllerの作成  
     - ポストで受け取ってS3に挿入 下記の転載  
-  ```public function upload(Request $request){  
-    $file = $request->file('file'); 
-    // 第一引数はディレクトリの指定  
-    // 第二引数はファイル  
-    $path = Storage::disk('s3')->putFile('/', $file, 'public');  
-    // hogeディレクトリにアップロード  
-    // $path = Storage::disk('s3')->putFile('/hoge', $file, 'public');  
-    // ファイル名を指定する場合はputFileAsを利用する  
-    // $path = Storage::disk('s3')->putFileAs('/', $file, 'hoge.jpg', 'public'); 
-    return redirect('/'); 
- }```  
+    `public function upload(Request $request){`  
+    ` $file = $request->file('file');`  
+    ` // 第一引数はディレクトリの指定`  
+    ` // 第二引数はファイル`  
+    ` $path = Storage::disk('s3')->putFile('/', $file, 'public');`  
+    ` // hogeディレクトリにアップロード`  
+    ` // $path = Storage::disk('s3')->putFile('/hoge', $file, 'public');`  
+    ` // ファイル名を指定する場合はputFileAsを利用する`  
+    ` // $path = Storage::disk('s3')->putFileAs('/', $file, 'hoge.jpg', 'public');`  
+    ` return redirect('/');`  
+    `}`   
  - 表示方法  
-    - ```public function disp(){`  
-    `$path = Storage::disk('s3')->url('hoge.jpg');`  
-    `return view('disp', compact('path'));`  
- `}```  
+    - `public function disp(){`  
+    ` $path = Storage::disk('s3')->url('hoge.jpg');`  
+    ` return view('disp', compact('path'));`  
+    `}`  
  
