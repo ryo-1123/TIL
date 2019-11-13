@@ -16,7 +16,10 @@
 
 #### 実装方法
  - ` composer require league/flysystem-aws-s3-v3` をインストール　　
- - AWS_ACCESS_KEY_ID= Access key ID  AWS_SECRET_ACCESS_KEY= Secret access key  AWS_DEFAULT_REGION=ap-northeast-1  AWS_BUCKET=　bucket名  を.envファイルに記入
+ - >AWS_ACCESS_KEY_ID= Access key ID
+ >AWS_SECRET_ACCESS_KEY= Secret access key
+ >AWS_DEFAULT_REGION=ap-northeast-1 >AWS_BUCKET=　bucket名  
+ を.envファイルに記入
 >sssa
 >
 >
