@@ -22,7 +22,7 @@
 `AWS_BUCKET=　bucket名`  
 を.envファイルに記入  
  - Controllerの作成  
-  - ポストで受け取ってS3に挿入 下記の転載  
+    - ポストで受け取ってS3に挿入 下記の転載  
   `public function upload(Request $request){`  
     `$file = $request->file('file');`  
     `// 第一引数はディレクトリの指定`  
@@ -35,7 +35,7 @@
     `return redirect('/');`  
  `}`  
  - 表示方法  
-  - `public function disp(){`  
+    - `public function disp(){`  
     `$path = Storage::disk('s3')->url('hoge.jpg');`  
     `return view('disp', compact('path'));`  
  `}`  
