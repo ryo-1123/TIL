@@ -1,8 +1,8 @@
-## ------------AUTO LOGIN の基本,実装方法----------------
+#### ------------AUTO LOGIN の基本,実装方法----------------
 - 通常のログインの場合、デフォルトでsessionの時間は２時間
 - オートログインを実装すると、ユーザがログアウトしない限り、約5年維持することが出来る。
 
-#### 実装方法
+##### 実装方法
 >zzzz
 >ssss
 >sssa
@@ -10,11 +10,11 @@
 >
 >
 
-## ------------laravel S3の接続方法----------------
+#### ------------laravel S3の接続方法----------------
 - AWSのアカウント作成済み
 - 
 
-#### 実装方法
+##### 実装方法
  - ` composer require league/flysystem-aws-s3-v3` をインストール  
  - `AWS_ACCESS_KEY_ID= Access key ID`  
 `AWS_SECRET_ACCESS_KEY= Secret access key`  
@@ -40,3 +40,21 @@
     ` return view('disp', compact('path'));`  
     `}`  
  
+#### ------------Imagickを使って画像の回転を修正してstorageに保存----------------
+1. imageのインストール `composer require intervention/image `
+1. config/app.php　の provider & aliases に　imageを追加
+1. imagickを使用するために
+    1. `php artisan vendor:publish`
+    1. 上記を実行するとconfig/image.phpが出来るので、その中身を修正（ gd -> imagick ）
+1. store処理を書いて終了
+    1. postされた画像を変数に入れる `$file = $request->file('name名');`
+    1. DBに保存するpathの生成 `$store_path = 'public/'.$file->hashName();`
+    1. 実際にストレージに入れるフルパス指定 `$full_path = storage('app/'.$store_path);`
+    1. imagickを使用して画像の生成から保存まで
+        1. 修正するためにImageで画像を読み込む `$store_image = Image::make($file);`
+        1. 回転の修正 `$store_image->orientate();`
+        1. 画像の保存 `$store_image->save($store_path);`
+    1. DBにpathを保存(Table -> $users->user_image) `$users->user_image = $image_path;`
+    1. DB保存 `$users->save();`
+#### -------------------------　おわり　---------------------------------
+    
