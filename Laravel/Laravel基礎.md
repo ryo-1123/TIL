@@ -42,7 +42,7 @@
  
 #### ------------Imagickを使って画像の回転を修正してstorageに保存----------------
 1. imageのインストール `composer require intervention/image `
-1. config/app.php　の provider & aliases に　imageを追加
+1. config/app.php の provider & aliases に imageを追加
 1. imagickを使用するために
     1. `php artisan vendor:publish`
     1. 上記を実行するとconfig/image.phpが出来るので、その中身を修正（ gd -> imagick ）
@@ -54,7 +54,7 @@
         1. 修正するためにImageで画像を読み込む `$store_image = Image::make($file);`
         1. 回転の修正 `$store_image->orientate();`
         1. 画像の保存 `$store_image->save($store_path);`
-    1. DBにpathを保存(Table -> $users->user_image) `$users->user_image = $image_path;`
+    1. DBにpathを保存 (Table -> $users->user_image) `$users->user_image = $image_path;`
     1. DB保存 `$users->save();`
-#### -------------------------　おわり　---------------------------------
+#### ---------------------------　おわり　---------------------------------
     
