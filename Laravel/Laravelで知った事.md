@@ -45,5 +45,6 @@
         1. 画像の保存 `$store_image->save($store_path);`
     1. DBにpathを保存 (Table -> $users->user_image) `$users->user_image = $image_path;`
     1. DB保存 `$users->save();`
+1. 表示方法 `{{asset(str_replace('public/', '/storage/', $host->host_image))}}`
 #### ---------------------------　おわり　---------------------------------
     
