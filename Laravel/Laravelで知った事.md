@@ -49,17 +49,43 @@
 #### ---------------------------　おわり　---------------------------------
 #### ------------paginateとinfinite Scrollを使用してもっと見るボタンの実装-----------------
 1. Infinite Scroll(バージョン3)を読み込む
+1. controllerを書く(下記参照)
+   ```
+    public function index(){
+      $data['posts'] = Data::orderBy('created_at', 'desc')
+          ->paginate(5);
+      return view('index', $data);
+    }
+1. bladeを書く（下記参照）
+    ```
+     <ul class="host-review__list">
+         @foreach ($data as $d)
+             <li class="host-review__item"> // append
+                 <div class="host-review__content">
+                      <ul class="host-review__meta">
+                          <li class="data-like data-like--profile"><span>{{$d->data}}</span></li>
+                          <li class="host-review__date">
+                              {{$d->data}}
+                           </li>
+                       </ul>
+                       <p class="host-review__detail">{{$d->data}}</p>
+                   </div>
+               </li>
+          @endforeach
+       </ul>
+       @if($comment->hasMorePages())
+            <div class="text-center more">
+                <a href="{{ $comment->nextPageUrl() }}" style="display:none;"></a> //これがpath
+                <button class="btn btn-addiction moreBtn">もっと見る</button> // button部分
+            </div>
+        @endif
 1. jsを書く(下記参照）  
    ``` $(function(){  
-        let infScroll = new InfiniteScroll( ".host-review__list", {  
-            path : ".more a",  
-            append : ".host-review__item",  
-            button : ".moreBtn",  
-            scrollThreshold: false,  
-        });  
-    });  ```
-1. 
-1. 
-1. 
-1. 
+        let infScroll = new InfiniteScroll( ".host-review__list", {  // foreachの外側のclass名
+            path : ".more a",  // urlを入れているclass名の指定
+            append : ".host-review__item",  // foreachで回す中身のclass名
+            button : ".moreBtn",  // ボタンのclass名
+            scrollThreshold: false,  //  スクロールでinfiteが動作しないようにfalse
+        }); 
+    });
 #### ---------------------------　おわり　---------------------------------
