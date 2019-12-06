@@ -50,14 +50,14 @@
 #### ------------paginateとinfinite Scrollを使用してもっと見るボタンの実装-----------------
 1. Infinite Scroll(バージョン3)を読み込む
 1. jsを書く(下記参照）  
-    $(function(){  
+   ``` $(function(){  
         let infScroll = new InfiniteScroll( ".host-review__list", {  
             path : ".more a",  
             append : ".host-review__item",  
             button : ".moreBtn",  
             scrollThreshold: false,  
         });  
-    });  
+    });  ```
 1. 
 1. 
 1. 
