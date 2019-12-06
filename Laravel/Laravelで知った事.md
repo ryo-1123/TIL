@@ -47,4 +47,19 @@
     1. DB保存 `$users->save();`
 1. 表示方法 `{{asset(str_replace('public/', '/storage/', $host->host_image))}}`
 #### ---------------------------　おわり　---------------------------------
-    
+#### ------------paginateとinfinite Scrollを使用してもっと見るボタンの実装-----------------
+1. Infinite Scroll(バージョン3)を読み込む
+1. jsを書く(下記参照)
+    $(function(){
+        let infScroll = new InfiniteScroll( ".host-review__list", {
+            path : ".more a",
+            append : ".host-review__item",
+            button : ".moreBtn",
+            scrollThreshold: false,
+        });
+    });
+1. 
+1. 
+1. 
+1. 
+#### ---------------------------　おわり　---------------------------------
