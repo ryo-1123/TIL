@@ -109,3 +109,6 @@
  - joinについて
 
 #### ---------------------------　おわり　---------------------------------
+#### 　　　　　------------ twilio callの検索条件 -----------------
+https://www.twilio.com/docs/voice/api/call-resource?code-sample=code-read-multiple-call-resources-and-filter-by-after-start-date&code-language=PHP&code-sdk-version=5.x
+#### ---------------------------　おわり　---------------------------------
