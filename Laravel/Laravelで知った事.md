@@ -47,7 +47,8 @@
 1. 表示方法 `{{asset(str_replace('public/', '/storage/', $host->host_image))}}`
 #### ---------------------------　おわり　---------------------------------
 #### ----------------Imagickを使って画像のリサイズ-------------------
-一方のpxに合わせて縦横比のそのまま縮小する方法    
+一方のpxに合わせて縦横比のそのまま縮小する方法   
+1. imageのインストール済み想定 `composer require intervention/image `    
 ->resize(width, height)
 ``` 
     $host_image->resize(null, 525, function ($constraint) {
