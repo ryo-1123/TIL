@@ -50,6 +50,7 @@
 一方のpxに合わせて縦横比のそのまま縮小する方法   
 1. imageのインストール済み想定 `composer require intervention/image `    
 ->resize(width, height)
+1. 基準とする方の大きさをしてして、もう一方はnull
 ``` 
     $host_image->resize(null, 525, function ($constraint) {
         $constraint->aspectRatio();
