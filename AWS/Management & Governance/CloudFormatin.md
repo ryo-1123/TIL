@@ -1,19 +1,19 @@
 # CloudFormation
-  * サーバー監視サービス
+  * 
 
 ## 主な機能
   * 
 
 ## CloudFormation ヘルパースクリプト
 
-#### cfn-init
+### cfn-init
 
   * AWS CloudFormatinのメタデータの取得と解析
   * パッケージのインストール
   * ディスクへのファイル書き込み
   * サービスの有効化/無効化と開始/停止
 
-##### 構文
+#### 構文
 ```
 cfn-init --stack|-s stack.name.or.id \
     --resource|-r logical.resource.id \
@@ -29,11 +29,11 @@ cfn-init --stack|-s stack.name.or.id \
     --verbose|-v
 ```
 
-#### cfn-signal
+### cfn-signal
 
-#### cfn-get-metadata
+### cfn-get-metadata
 
-#### cfn-hup
+### cfn-hup
 
 ## 見積もり(料金)
 
