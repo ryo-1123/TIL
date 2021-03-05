@@ -29,6 +29,12 @@ cfn-init --stack|-s stack.name.or.id \
     --verbose|-v
 ```
 
+#### インストール参考記事
+  * パッケージでインストールする方穂が記載
+    * https://docs.aws.amazon.com/ja_jp/AWSCloudFormation/latest/UserGuide/deploying.applications.html#deployment-walkthrough-lamp-install
+  * コマンドでインストールする方法が記載
+    * https://qiita.com/tomoki_s/items/f2c49bf8fdf8f2ffdfe5
+
 ### cfn-signal
 
 ### cfn-get-metadata
