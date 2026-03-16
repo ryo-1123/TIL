@@ -1,0 +1,42 @@
+name: Update Discussion Rules
+
+on:
+  workflow_dispatch:
+
+jobs:
+  update-rules:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Add timestamp to discussion rules
+        run: |
+          FILE="生産的な議論のためのルール.md"
+          # ファイル末尾に最終更新日を追記（既存の行があれば上書き）
+          if grep -q "^> 最終更新:" "$FILE"; then
+            sed -i "s/^> 最終更新:.*$/> 最終更新: $(date '+%Y-%m-%d')/" "$FILE"
+          else
+            echo "" >> "$FILE"
+            echo "> 最終更新: $(date '+%Y-%m-%d')" >> "$FILE"
+          fi
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v7
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "docs: 最終更新日を更新"
+          branch: update/discussion-rules-timestamp
+          delete-branch: true
+          title: "docs: 生産的な議論のためのルール 最終更新日を更新"
+          body: |
+            ## 変更内容
+
+            `生産的な議論のためのルール.md` の最終更新日を自動更新しました。
+
+            - 更新日: ${{ github.run_id }} (実行日時)
+
+            このPRはGitHub Actionsによって自動生成されました。
+          labels: |
+            automated
+            documentation
