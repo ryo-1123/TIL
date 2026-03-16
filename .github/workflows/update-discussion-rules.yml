@@ -25,9 +25,9 @@ jobs:
         uses: peter-evans/create-pull-request@v7
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+          author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
           commit-message: "docs: 最終更新日を更新"
           branch: update/discussion-rules-timestamp
-          delete-branch: true
           title: "docs: 生産的な議論のためのルール 最終更新日を更新"
           body: |
             ## 変更内容
