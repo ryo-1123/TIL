@@ -37,6 +37,3 @@ jobs:
             - 更新日: ${{ github.run_id }} (実行日時)
 
             このPRはGitHub Actionsによって自動生成されました。
-          labels: |
-            automated
-            documentation
